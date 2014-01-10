@@ -65,8 +65,8 @@
       },
       _create:function(){
         var calendar
-        this.options.altField = this.element;
         if( this.options.inline ){
+	  this.options.altField = this.element;
           calendar = $("<div>").datepicker(this.options);
           this.element.parent().after(calendar);
         } else {
