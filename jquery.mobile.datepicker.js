@@ -32,23 +32,32 @@
 		onSelect:  function(text,object){
             var self = this;
             setTimeout( function(){
+              if( !object.settings.inline ){
+                $(object.input)
+                  .date( "addMobileStyle" );
+              } else {
                 $(object.settings.altField)
-                  .data("mobileDate")._addMobileStyle();
+                  .date( "addMobileStyle" );
+              }
             },0);
           }, // Define a callback function when a date is selected
 		onChangeMonthYear: function(month,year,object){
             var self = this;
             setTimeout( function(){
+              if( !object.settings.inline ){
+                $(object.input)
+                  .date( "addMobileStyle" );
+              } else {
                 $(object.settings.altField)
-                  .data("mobileDate")._addMobileStyle();
+                  .date( "addMobileStyle" );
+              }
             },0);
           },
-        beforeShow: function( element ){
+    beforeShow: function( element ){
           var self = this;
             setTimeout( function(){
-              
                 $(element)
-                  .data("mobileDate")._addMobileStyle();
+                  .data("mobileDate").addMobileStyle();
             },0);
         },// Define a callback function when the month or year is changed
 		numberOfMonths: 1, // Number of months to show at a time
@@ -61,51 +70,69 @@
 		showButtonPanel: false, // True to show button panel, false to not show it
 		autoSize: false, // True to size the input for the date format, false to leave as is
 		disabled: false, // The initial disabled state
-        inline: false
+    inline: false
       },
       _create:function(){
-        var calendar
+        var calendar, interval,
+          that = this;
         if( this.options.inline ){
-	  this.options.altField = this.element;
+	        this.options.altField = this.element;
           calendar = $("<div>").datepicker(this.options);
           this.element.parent().after(calendar);
         } else {
           this.element.datepicker( this.options );
           calendar= this.element.datepicker( "widget" );
         }
-        
-        $.extend(this,{
-          calendar:calendar
+
+        this.calendar = calendar;
+
+        this.baseWidget = ( !this.options.inline )? this.element: this.calendar;
+
+        this._on({
+          "change": function() {
+            if( this.options.inline ){
+              this.calendar.datepicker( "setDate", this.element.val() );
+            }
+            this._delay( "addMobileStyle", 10 );
+          },
+          "input": function() {
+            interval = window.setInterval( function(){
+              if( !that.calendar.hasClass( "mobile-enhanced" ) ){
+                that.addMobileStyle();
+              } else {
+                clearInterval( interval );
+              }
+            });
+          }
         });
-        this._addMobileStyle();
+        this.addMobileStyle();
       },
       setOption:function( key, value ){
         this.calendar.datepicker("option",key,value);
       },
       getDate: function(){
-        return this.calendar.datepicker("getDate");
+        console.log( this.baseWidget );
+        return this.baseWidget.datepicker("getDate");
       },
       _destroy: function(){
-        return this.calendar.datepicker("destroy");
+        return this.baseWidget.datepicker("destroy");
       },
       isDisabled: function(){
-        return this.calendar.datepicker("isDisabled");
-      },
-      getDate: function(){
-        return this.calendar.datepicker("getDate");
+        return this.baseWidget.datepicker("isDisabled");
       },
       refresh: function(){
-        return this.calendar.datepicker("refresh");
+        return this.baseWidget.datepicker("refresh");
       },
-      setDate: function( ){
-        return this.calendar.datepicker("setDate");
+      setDate: function( date ){
+        return this.baseWidget.datepicker("setDate", date );
       },
       widget:function(){
-       return this.element; 
+       return this.element;
       },
-      _addMobileStyle: function(){
-        
-          this.calendar.addClass("ui-shadow").find(".ui-datepicker-calendar a,.ui-datepicker-prev,.ui-datepicker-next").addClass("ui-btn").end()
+      addMobileStyle: function(){
+          this.calendar.addClass("ui-shadow")
+          .find( ".ui-datepicker-calendar" ).addClass( "mobile-enhanced" ).end()
+          .find(".ui-datepicker-calendar a,.ui-datepicker-prev,.ui-datepicker-next").addClass("ui-btn").end()
           .find(".ui-datepicker-prev").addClass("ui-btn-icon-notext ui-btn-inline ui-corner-all ui-icon-arrow-l ui-shadow").end()
           .find(".ui-datepicker-next").addClass("ui-btn-icon-notext ui-btn-inline ui-corner-all ui-icon-arrow-r ui-shadow").end()
           .find(".ui-datepicker-header").addClass("ui-body-a ui-corner-top").removeClass("ui-corner-all").end()
@@ -113,7 +140,7 @@
           .find(".ui-datepicker-calendar td" ).addClass("ui-body-a").end()
           .find(".ui-datepicker-calendar a.ui-state-active").addClass("ui-btn-active").end()
           .find(".ui-datepicker-calendar a.ui-state-highlight").addClass("ui-btn-up-a").end().find(".ui-state-disabled").css("opacity","1");
-      }  
+      }
     });
 
  })( jQuery );
