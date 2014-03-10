@@ -129,17 +129,18 @@
       widget:function(){
        return this.element;
       },
+      theme: 'a',
       addMobileStyle: function(){
           this.calendar.addClass("ui-shadow")
           .find( ".ui-datepicker-calendar" ).addClass( "mobile-enhanced" ).end()
           .find(".ui-datepicker-calendar a,.ui-datepicker-prev,.ui-datepicker-next").addClass("ui-btn").end()
           .find(".ui-datepicker-prev").addClass("ui-btn-icon-notext ui-btn-inline ui-corner-all ui-icon-arrow-l ui-shadow").end()
           .find(".ui-datepicker-next").addClass("ui-btn-icon-notext ui-btn-inline ui-corner-all ui-icon-arrow-r ui-shadow").end()
-          .find(".ui-datepicker-header").addClass("ui-body-a ui-corner-top").removeClass("ui-corner-all").end()
-          .find(".ui-datepicker-calendar th" ).addClass("ui-bar-a").end()
-          .find(".ui-datepicker-calendar td" ).addClass("ui-body-a").end()
+          .find(".ui-datepicker-header").addClass("ui-body-"+this.options.theme+" ui-corner-top").removeClass("ui-corner-all").end()
+          .find(".ui-datepicker-calendar th" ).addClass("ui-bar-"+this.options.theme).end()
+          .find(".ui-datepicker-calendar td" ).addClass("ui-body-"+this.options.theme).end()
           .find(".ui-datepicker-calendar a.ui-state-active").addClass("ui-btn-active").end()
-          .find(".ui-datepicker-calendar a.ui-state-highlight").addClass("ui-btn-up-a").end().find(".ui-state-disabled").css("opacity","1");
+          .find(".ui-datepicker-calendar a.ui-state-highlight").addClass("ui-btn-up-"+this.options.theme).end().find(".ui-state-disabled").css("opacity","1");
       }
     });
 
