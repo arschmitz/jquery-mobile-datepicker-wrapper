@@ -29,37 +29,9 @@
 		beforeShowDay: null, // Function that takes a date and returns an array with
 			// [0] = true if selectable, false if not, [1] = custom CSS class name(s) or "",
 			// [2] = cell title (optional), e.g. $.datepicker.noWeekends
-		onSelect:  function(text,object){
-            var self = this;
-            setTimeout( function(){
-              if( !object.settings.inline ){
-                $(object.input)
-                  .date( "addMobileStyle" );
-              } else {
-                $(object.settings.altField)
-                  .date( "addMobileStyle" );
-              }
-            },0);
-          }, // Define a callback function when a date is selected
-		onChangeMonthYear: function(month,year,object){
-            var self = this;
-            setTimeout( function(){
-              if( !object.settings.inline ){
-                $(object.input)
-                  .date( "addMobileStyle" );
-              } else {
-                $(object.settings.altField)
-                  .date( "addMobileStyle" );
-              }
-            },0);
-          },
-    beforeShow: function( element ){
-          var self = this;
-            setTimeout( function(){
-                $(element)
-                  .data("mobileDate").addMobileStyle();
-            },0);
-        },// Define a callback function when the month or year is changed
+		onSelect: null, // Define a callback function when a date is selected
+		onChangeMonthYear: null, // Define a callback function when the month or year is changed
+		beforeShow: null, // Define a callback function when the calendar is shown
 		numberOfMonths: 1, // Number of months to show at a time
 		showCurrentAtPos: 0, // The position in multipe months at which to show the current month (starting at 0)
 		stepMonths: 1, // Number of months to step back/forward
@@ -70,11 +42,25 @@
 		showButtonPanel: false, // True to show button panel, false to not show it
 		autoSize: false, // True to size the input for the date format, false to leave as is
 		disabled: false, // The initial disabled state
-    inline: false
+		inline: false // True to set the calendar always visible
       },
       _create:function(){
         var calendar, interval,
           that = this;
+        
+        $.each([ 'onSelect', 'onChangeMonthYear', 'beforeShow' ], function(key, val){
+			that.options[ '_'+val ] = that.options[ val ];
+			that.options[ val ] = function(){
+				var args = arguments;
+				setTimeout(function(){
+					that.addMobileStyle();
+					if (that.options[ '_'+val ]) {
+						that.options[ '_'+val ].apply( null, args );
+					}
+				}, 0);
+			}
+        });
+        
         if( this.options.inline ){
 	        this.options.altField = this.element;
           calendar = $("<div>").datepicker(this.options);
