@@ -42,7 +42,8 @@
 		showButtonPanel: false, // True to show button panel, false to not show it
 		autoSize: false, // True to size the input for the date format, false to leave as is
 		disabled: false, // The initial disabled state
-		inline: false // True to set the calendar always visible
+		inline: false, // True to set the calendar always visible
+    theme: "a"
       },
       _create:function(){
         var calendar, interval,
