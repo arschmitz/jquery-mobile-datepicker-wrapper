@@ -4,7 +4,7 @@ jquery-mobile-datepicker-wrapper
 Wrapper to turn jquery ui datepicker into a mobile widget.
 
 This take the jQuery ui datepicker and turns it into a fully functional jquery mobile widget. This includes auto initalization via data-role="date" and reading of options from data-attributes.
-For example usage please see http://jsbin.com/uzaret/938/edit
+For example usage please see http://jsbin.com/uzaret/1375/edit
 
 * **Compatible with jQuery Mobile 1.4+**
 
