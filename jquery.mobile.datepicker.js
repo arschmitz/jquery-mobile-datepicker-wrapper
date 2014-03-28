@@ -43,7 +43,8 @@
 		autoSize: false, // True to size the input for the date format, false to leave as is
 		disabled: false, // The initial disabled state
 		inline: false, // True to set the calendar always visible
-    theme: "a"
+    theme: "a",
+    dateFormat: "mm/dd/yy"
       },
       _create:function(){
         var calendar, interval,
@@ -53,7 +54,7 @@
 			    that.options[ '_'+val ] = that.options[ val ];
     			that.options[ val ] = function( date, inst ){
     				var args = arguments;
-            this.element.trigger( "change" );
+            that.element.trigger( "change" );
     				setTimeout(function(){
     					that.addMobileStyle();
     					if (that.options[ '_'+val ]) {
