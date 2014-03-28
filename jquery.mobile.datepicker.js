@@ -51,10 +51,12 @@
           that = this;
         
         $.each([ 'onSelect', 'onChangeMonthYear', 'beforeShow' ], function(key, val){
-			    that.options[ '_'+val ] = that.options[ val ];
-    			that.options[ val ] = function( date, inst ){
+        		that.options[ '_'+val ] = that.options[ val ];
+        		that.options[ val ] = function(){
     				var args = arguments;
-            that.element.trigger( "change" );
+    				if (val == 'onSelect') {
+    					that.element.trigger( "change" );
+    				}
     				setTimeout(function(){
     					that.addMobileStyle();
     					if (that.options[ '_'+val ]) {
