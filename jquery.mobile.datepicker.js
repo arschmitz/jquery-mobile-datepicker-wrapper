@@ -50,16 +50,17 @@
           that = this;
         
         $.each([ 'onSelect', 'onChangeMonthYear', 'beforeShow' ], function(key, val){
-			that.options[ '_'+val ] = that.options[ val ];
-			that.options[ val ] = function(){
-				var args = arguments;
-				setTimeout(function(){
-					that.addMobileStyle();
-					if (that.options[ '_'+val ]) {
-						that.options[ '_'+val ].apply( null, args );
-					}
-				}, 0);
-			}
+			    that.options[ '_'+val ] = that.options[ val ];
+    			that.options[ val ] = function( date, inst ){
+    				var args = arguments;
+            this.element.trigger( "change" );
+    				setTimeout(function(){
+    					that.addMobileStyle();
+    					if (that.options[ '_'+val ]) {
+    						that.options[ '_'+val ].apply( null, args );
+    					}
+    				}, 0);
+    			}
         });
         
         if( this.options.inline ){
