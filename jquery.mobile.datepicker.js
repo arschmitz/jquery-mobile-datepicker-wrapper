@@ -47,7 +47,8 @@
     dateFormat: "mm/dd/yy"
       },
       _getCreateOptions: function(){
-        return $.datepicker._defaults;
+        $.extend( this.options, $.datepicker._defaults )
+        return this._super();
       },
       _create:function(){
         var calendar, interval,
