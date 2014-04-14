@@ -46,6 +46,9 @@
     theme: "a",
     dateFormat: "mm/dd/yy"
       },
+      _getCreateOptions: function(){
+        return $.datepicker._defaults;
+      },
       _create:function(){
         var calendar, interval,
           that = this;
