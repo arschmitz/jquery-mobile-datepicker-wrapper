@@ -1,4 +1,26 @@
-(function( $, undefined ) {
+/*!
+ * jQuery UI Button @VERSION
+ * http://jqueryui.com
+ *
+ * Copyright 2014 jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ *
+ * http://api.jqueryui.com/button/
+ */
+(function( factory ) {
+  if ( typeof define === "function" && define.amd ) {
+
+    // AMD. Register as an anonymous module.
+    define([
+      "jquery-ui/datepicker"
+    ], factory );
+  } else {
+
+    // Browser globals
+    factory( jQuery );
+  }
+}(function( $ ) {
     $.widget("mobile.date",{
       options:{
 		defaultDate: null, // Used when field is blank: actual date,
