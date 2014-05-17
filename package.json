@@ -1,38 +1,37 @@
 {
-	"name": "jquery-mobile-datepicker-wrapper",
-	"title": "jQuery Mobile Datepicker Wrapper",
-	"description": "Wrapper for jQuery UI Datepicker for use in jQuery Mobile",
-	"version": "v0.1.1",
-	"homepage": "http://uglymongrel.com",
-	"author": {
-		"name": "Alexander Schmitz and other contributors",
-		"url": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper/blob/master/AUTHORS.txt"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper/"
-	},
-	"bugs": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper/issues",
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper/blob/master/MIT-LICENSE.txt"
-		}
-	],
-	"dependencies": {
-		"jquery": ">=1.8.3",
-		"jquery-mobile": ">=1.4.0"
-	},
-	"devDependencies": {
-	},
-	"main": "Gruntfile.js",
-	"engines": {
-		"node": ">= 0.8.0"
-	},
-	"scripts": {
-		"ci": "grunt test coveralls",
-		"test": "grunt test",
-		"lint": "grunt jshint"
-	},
-	"keywords": []
+  "name": "jquery-mobile-datepicker-wrapper",
+  "title": "jQuery Mobile Datepicker Wrapper",
+  "description": "Wrapper for jQuery UI Datepicker for use in jQuery Mobile",
+  "version": "0.1.2",
+  "homepage": "http://uglymongrel.com",
+  "author": {
+    "name": "Alexander Schmitz and other contributors",
+    "url": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper/blob/master/AUTHORS.txt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper/"
+  },
+  "bugs": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper/issues",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper/blob/master/MIT-LICENSE.txt"
+    }
+  ],
+  "dependencies": {
+    "jquery": ">=1.8.3",
+    "jquery-mobile": ">=1.4.0"
+  },
+  "devDependencies": {},
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "ci": "grunt test coveralls",
+    "test": "grunt test",
+    "lint": "grunt jshint"
+  },
+  "keywords": []
 }
