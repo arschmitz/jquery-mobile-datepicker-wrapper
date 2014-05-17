@@ -1,0 +1,41 @@
+{
+    "name": "mobile-datepicker-wrapper",
+    "title": "jQuery Mobile Datepicker wrapper",
+    "description": "jQuery Mobile widget which wraps the jQuery UI Datepicker for use on mobile",
+    "keywords": [
+        "mobile",
+        "date",
+        "datepicker",
+        "ui",
+        "widget",
+        "input",
+        "calendar"
+    ],
+    "version": "0.1.0",
+    "author": {
+        "name": "Alexander Schmitz and other contributors",
+        "url": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper"
+    },
+    "maintainers": [
+        {
+            "name": "Alexander Schmitz",
+            "email": "arschmitz@gmail.com",
+            "url": "http://uglymongrel.com"
+        }
+    ],
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper/blob/master/LICENSE"
+        }
+    ],
+    "bugs": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper/issues",
+    "homepage": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper",
+    "docs": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper",
+    "download": "https://github.com/arschmitz/jquery-mobile-datepicker-wrapper",
+    "dependencies": {
+        "jquery": ">=1.8",
+        "jquery-ui": ">=1.9",
+        "jquery-mobile": ">=1.4.0"
+    }
+}
