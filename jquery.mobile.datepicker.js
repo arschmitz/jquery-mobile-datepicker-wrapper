@@ -1,12 +1,12 @@
 /*!
- * jQuery UI Button @VERSION
- * http://jqueryui.com
+ * jQuery Mobile Datepicker
+ * http://uglymongrel.com.com
  *
- * Copyright 2014 jQuery Foundation and other contributors
+ * Copyright 2014 Alexander Schmitz and other contributors
  * Released under the MIT license.
  * http://jquery.org/license
  *
- * http://api.jqueryui.com/button/
+ * http://api.uglymongrel.com.com/jquery-mobile-datepicker-wrapper/
  */
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
@@ -161,4 +161,6 @@
       }
     });
 
- })( jQuery );
+return $.mobile.date;
+
+}));
