@@ -2,7 +2,7 @@
   "name": "jquery-mobile-datepicker-wrapper",
   "title": "jQuery Mobile Datepicker Wrapper",
   "description": "Wrapper for jQuery UI Datepicker for use in jQuery Mobile",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "homepage": "http://uglymongrel.com",
   "author": {
     "name": "Alexander Schmitz and other contributors",
