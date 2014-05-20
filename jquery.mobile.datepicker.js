@@ -9,10 +9,10 @@
  * http://api.uglymongrel.com.com/jquery-mobile-datepicker-wrapper/
  */
 //>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
-//>>description: Consistent styling for native select menus. Tapping opens a native select menu.
-//>>label: Selects
+//>>description: Consistent styling for native dates. Tapping opens a calender to select date.
+//>>label: Datepicker
 //>>group: Forms
-//>>css.structure: ../css/structure/jquery.mobile.forms.select.css
+//>>css.structure: ../external/uglymongrel/arschmitz/jquery.mobile.datepicker.wrapper.css
 //>>css.theme: ../css/themes/default/jquery.mobile.theme.css
 //>>excludeEnd("jqmBuildExclude");
 (function( factory ) {
