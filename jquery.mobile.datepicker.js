@@ -8,6 +8,13 @@
  *
  * http://api.uglymongrel.com.com/jquery-mobile-datepicker-wrapper/
  */
+//>>excludeStart("jqmBuildExclude", pragmas.jqmBuildExclude);
+//>>description: Consistent styling for native select menus. Tapping opens a native select menu.
+//>>label: Selects
+//>>group: Forms
+//>>css.structure: ../css/structure/jquery.mobile.forms.select.css
+//>>css.theme: ../css/themes/default/jquery.mobile.theme.css
+//>>excludeEnd("jqmBuildExclude");
 (function( factory ) {
   if ( typeof define === "function" && define.amd ) {
 
