@@ -16,7 +16,7 @@
 //>>css.theme: ../css/themes/default/jquery.mobile.theme.css
 //>>excludeEnd("jqmBuildExclude");
 (function( factory ) {
-  if ( typeof define === "function" && define.amd ) {
+	if ( typeof define === "function" && define.amd ) {
 
 	// AMD. Register as an anonymous module.
 	define([
@@ -86,16 +86,17 @@ $.widget("mobile.date",{
 		$.each([ 'onSelect', 'onChangeMonthYear', 'beforeShow' ], function(key, val){
 			that.options[ '_'+val ] = that.options[ val ];
 			that.options[ val ] = function(){
-				var args = arguments;
-				if (val == 'onSelect') {
-					that.element.trigger( "change" );
+
+			var args = arguments;
+			if (val == 'onSelect') {
+				that.element.trigger( "change" );
+			}
+			setTimeout(function(){
+				that.addMobileStyle();
+				if (that.options[ '_'+val ]) {
+					that.options[ '_'+val ].apply( null, args );
 				}
-				setTimeout(function(){
-					that.addMobileStyle();
-					if (that.options[ '_'+val ]) {
-						that.options[ '_'+val ].apply( null, args );
-					}
-				}, 0);
+			}, 0);
 			};
 		});
 
@@ -107,10 +108,6 @@ $.widget("mobile.date",{
 			this.element.datepicker( this.options );
 			calendar= this.element.datepicker( "widget" );
 		}
-
-		this.calendar = calendar;
-
-		this.baseWidget = ( !this.options.inline )? this.element: this.calendar;
 
 		this.calendar = calendar;
 
